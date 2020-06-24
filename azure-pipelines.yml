@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'ubuntu-latest'
+  name: EC2_MUMBAI_REGION
 
 steps:
 - script: echo Hello, Supermodule !
