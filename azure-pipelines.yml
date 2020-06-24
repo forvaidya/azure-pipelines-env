@@ -10,6 +10,6 @@ pool:
   name: EC2_MUMBAI_REGION
 
 steps:
-- script: echo Hello, Supermodule !
+- script: find submodule
   displayName: 'Run a one-line script'
 
