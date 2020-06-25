@@ -14,11 +14,13 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
+    
 - script: |
       git submodule deinit --all
       git submodule init
       git submodule update --remote
-      displayName: 'Refresh Submodule'
+  displayName: 'Refresh Submodule'
+
 - script: find submodule
   displayName: 'Run a one-line script'
 
