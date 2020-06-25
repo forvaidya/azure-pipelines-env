@@ -10,6 +10,8 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- script: git submodule update --remote
+  displayName: 'Refresh Submodule'
 - script: find submodule
   displayName: 'Run a one-line script'
 
