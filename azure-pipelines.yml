@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: EC2_MUMBAI_REGION
+  vmImage: 'ubuntu-latest'
 
 steps:
 - script: find submodule
