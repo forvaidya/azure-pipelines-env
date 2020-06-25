@@ -13,5 +13,23 @@ A submodule is included in supermodule.
 Pipeline have a bash step check if submodule updated OK
 
 ### Results 
-If there is no step to initialize submodule ; it will not do it default.
+
+### Public Visibility 
+Submodule is not updated by default
+to get submodule following commands are needed
+`
+git submodule deinit --all
+git submodule init 
+git submodule update --remote
+
+`
+
+### Private visibility 
+Submodule is not updated by default as above
+
+During init commands, HTTP error seen
+
+### Environment 
+Azure Agents.
+
 
