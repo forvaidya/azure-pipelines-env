@@ -1,20 +1,21 @@
-# Introduction 
-Problem statement
+# Unable to update submodules by default
 
-Azure Pipeline unable update submodule by default.
 
-## Test case setup
+##Test case setup
 
 Two git repositories submodule and supermodule.
-
 A submodule is included in supermodule.
 
-### Pipeline
+##Pipeline
 Pipeline have a bash step check if submodule updated OK
+<pre> find . submodule </pre
+>
+##Expected Result
+Submodule must get checked out and visiblein output
 
-### Results 
+##Actual Result
 
-### Public Visibility 
+### Test Case: Publically available git projects
 Submodule is not updated by default
 to get submodule following commands are needed
 
@@ -22,10 +23,10 @@ to get submodule following commands are needed
 git submodule init 
 git submodule update --remote</pre>
 
-### Private visibility 
+### Private git projects 
 Submodule is not updated by default as above
 
-During init commands, HTTP error seen
+During init commands, HTTP error seen in case of private git
 
 ### Environment 
 Azure Agents.
