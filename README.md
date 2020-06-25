@@ -17,12 +17,10 @@ Pipeline have a bash step check if submodule updated OK
 ### Public Visibility 
 Submodule is not updated by default
 to get submodule following commands are needed
-`
-git submodule deinit --all
-git submodule init 
-git submodule update --remote
 
-`
+' git submodule deinit --all
+git submodule init 
+git submodule update --remote '
 
 ### Private visibility 
 Submodule is not updated by default as above
