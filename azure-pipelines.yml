@@ -17,12 +17,12 @@ jobs:
           # Write your commands here
           find . |grep -v git
 
-  - deployment: 
+  - deployment: onDevEnv
     pool:
       vmImage: 'ubuntu-latest'
     environment: DevEnv
 
-  - deployment: 
+  - deployment: onQAEnv
     pool:
       vmImage: 'ubuntu-latest'
     environment: QAEnv
