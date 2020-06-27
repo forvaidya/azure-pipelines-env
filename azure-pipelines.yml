@@ -3,7 +3,12 @@ trigger:
 
 jobs:
   - job: basicBuild
-    pool: ubuntu-latest
+    pool: 
+     name: MS Default
+     vmImage: 'ubuntu-latest'
+  
+
+
     steps: 
     - checkout: self
       submodules: recursive
