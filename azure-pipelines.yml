@@ -1,20 +1,26 @@
 trigger:
 - master
 
-pool:
-  vmImage: 'ubuntu-latest'
+jobs:
+  - job: basicBuild
+    steps: 
+    - checkout: self
+      submodules: recursive
 
-steps:
-  - checkout: self
-    persistCredentials: true
-    submodules: recursive
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: |
+          # Write your commands here
+          find . |grep -v git
 
-    
-  - task: Bash@3
-    inputs:
-      targetType: 'inline'
-      script: |
-        # Write your commands here
-        find  . |grep -v git
+  - deployment: 
+    environment: DevEnv
+
+  - deployment: 
+    environment: QAEnv
+
+
+
 
 
