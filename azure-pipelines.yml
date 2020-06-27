@@ -27,7 +27,15 @@ jobs:
           steps:
             - script: echo "hello world"
 
-   
+  - deployment: onQAEnv
+    pool:
+      vmImage: 'ubuntu-latest'
+    environment: QAEnv
+    strategy:
+     runOnce:
+        deploy:
+          steps:
+            - script: echo "hello world"
             
 
 
