@@ -4,10 +4,7 @@ trigger:
 jobs:
   - job: basicBuild
     pool: 
-     name: MS Default
      vmImage: 'ubuntu-latest'
-  
-
 
     steps: 
     - checkout: self
