@@ -6,7 +6,7 @@ pool:
 
 steps:
   - checkout: self
-    submodules: recurse
+    submodules: true
 
     
   - task: Bash@3
