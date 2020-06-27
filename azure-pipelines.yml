@@ -18,10 +18,15 @@ jobs:
           find . |grep -v git
 
   - deployment: 
+    pool:
+      vmImage: 'ubuntu-latest'
     environment: DevEnv
 
   - deployment: 
+    pool:
+      vmImage: 'ubuntu-latest'
     environment: QAEnv
+
 
 
 
