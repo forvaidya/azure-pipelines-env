@@ -1,8 +1,3 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
 - master
 
@@ -10,13 +5,15 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+  - checkout: self
+    submodules: recurse
 
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
     
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        # Write your commands here
+        find  . |grep -v git
 
-
-- script: find submodule
-  displayName: 'Run a one-line script'
 
