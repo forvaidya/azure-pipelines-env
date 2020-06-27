@@ -21,11 +21,16 @@ jobs:
     pool:
       vmImage: 'ubuntu-latest'
     environment: DevEnv
+    strategy:
+     runOnce:
+        deploy:
+          steps:
+            - script: echo "hello world"
 
-  - deployment: onQAEnv
-    pool:
-      vmImage: 'ubuntu-latest'
-    environment: QAEnv
+   
+            
+
+
 
 
 
