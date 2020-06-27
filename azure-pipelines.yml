@@ -29,7 +29,7 @@ jobs:
             - script: echo "hello world"
 
   - deployment: onQAEnv
-    dependsOn: onDevEnv
+    dependsOn: DevEnv
     pool:
       vmImage: 'ubuntu-latest'
     environment: QAEnv
