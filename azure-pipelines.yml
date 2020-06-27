@@ -19,6 +19,8 @@ jobs:
 
   - deployment: onDevEnv
     dependsOn: basicBuild
+    condition: succeeded()
+
     pool:
       vmImage: 'ubuntu-latest'
     environment: DevEnv
@@ -30,6 +32,7 @@ jobs:
 
   - deployment: onQAEnv
     dependsOn: onDevEnv
+    condition: succeeded()
     pool:
       vmImage: 'ubuntu-latest'
     environment: QAEnv
