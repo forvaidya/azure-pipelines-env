@@ -3,6 +3,7 @@ trigger:
 
 jobs:
   - job: basicBuild
+    pool: ubuntu-latest
     steps: 
     - checkout: self
       submodules: recursive
