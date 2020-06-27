@@ -18,6 +18,7 @@ jobs:
           find . |grep -v git
 
   - deployment: onDevEnv
+    dependsOn: basicBuild
     pool:
       vmImage: 'ubuntu-latest'
     environment: DevEnv
@@ -28,6 +29,7 @@ jobs:
             - script: echo "hello world"
 
   - deployment: onQAEnv
+    dependsOn: basicBuild
     pool:
       vmImage: 'ubuntu-latest'
     environment: QAEnv
