@@ -23,7 +23,7 @@ stages:
               find . |grep -v git
 
   - stage: DeploymentStage
-    condition: succeeded(BuildStage)
+    condition: succeeded('BuildStage')
 
     jobs:
       - deployment: DevDep
