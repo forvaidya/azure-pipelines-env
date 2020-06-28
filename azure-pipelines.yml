@@ -21,7 +21,20 @@ stages:
             script: |
               # Write your commands here
               find . |grep -v git 
-              
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script: |
+              RDM=$RANDOM
+              echo "Random Input  = ${RDM}"
+              if [ $((RDM%2)) -eq 0 ]
+              then
+                echo "SUCCESS"
+                exit 0
+              else
+                echo "FAILURE"
+                exit 1
+              fi
 
 
   - stage: DEVDeploymentStage
@@ -45,7 +58,7 @@ stages:
 
     jobs:
       - deployment: SecurityTestingDeployment
-        displayName: Deploy On Dev Environment
+        displayName: Deploy On !! SECUTIRY !!  Environment
         pool:
           vmImage: 'ubuntu-latest'
         environment: SecurityEnv
@@ -53,7 +66,21 @@ stages:
           runOnce:
             deploy: 
               steps: 
-              - script: '[ $((RANDOM%2)) -eq 0 ]''
+              - task: Bash@3
+                inputs:
+                  targetType: 'inline'
+                  script: |
+                    RDM=$RANDOM
+                    echo "Random Input  = ${RDM}"
+                    if [ $((RDM%2)) -eq 0 ]
+                    then
+                      echo "SUCCESS"
+                      exit 0
+                    else
+                      echo "FAILURE"
+                      exit 1
+                    fi
+                  failOnStderr: true
         
   - stage: QADeploymentStage
     condition: succeeded('SecurityTestingStage')
