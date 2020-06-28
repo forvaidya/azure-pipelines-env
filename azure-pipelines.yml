@@ -22,20 +22,6 @@ stages:
               # Write your commands here
               find . |grep -v git
 
-  - stage: QADeploymentStage
-    condition: succeeded('BuildStage')
-
-    jobs:
-      - deployment: QADep
-        displayName: Deploy On QA Environment
-        pool:
-          vmImage: 'ubuntu-latest'
-        environment: QAEnv
-        strategy:
-          runOnce:
-            deploy: 
-              steps: 
-              - script: echo "My deployment on QA Env"
 
   - stage: DEVDeploymentStage
     condition: succeeded('BuildStage')
@@ -52,6 +38,22 @@ stages:
               steps: 
               - script: echo "My deployment on Dev Env"
         
+
+  - stage: QADeploymentStage
+    condition: succeeded('BuildStage')
+
+    jobs:
+      - deployment: QADep
+        displayName: Deploy On QA Environment
+        pool:
+          vmImage: 'ubuntu-latest'
+        environment: QAEnv
+        strategy:
+          runOnce:
+            deploy: 
+              steps: 
+              - script: echo "My deployment on QA Env"
+
 
 
          
