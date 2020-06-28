@@ -41,7 +41,7 @@ stages:
         
 
   - stage: SecurityTestingStage
-    condition: succeeded('BuildStage')
+    condition: succeeded('DEVDeploymentStage')
 
     jobs:
       - deployment: SecurityTestingDeployment
@@ -56,7 +56,7 @@ stages:
               - script: false
         
   - stage: QADeploymentStage
-    condition: succeeded('BuildStage')
+    condition: succeeded('SecurityTestingStage')
 
     jobs:
       - deployment: QADep
