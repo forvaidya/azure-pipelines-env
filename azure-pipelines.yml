@@ -22,7 +22,7 @@ stages:
               # Write your commands here
               find . |grep -v git
 
-  - stage: QA-DeploymentStage
+  - stage: QADeploymentStage
     condition: succeeded('BuildStage')
 
     jobs:
@@ -36,7 +36,7 @@ stages:
               steps: 
               - script: echo "My deployment on QA Env"
 
-  - stage: DEV-DeploymentStage
+  - stage: DEVDeploymentStage
     condition: succeeded('BuildStage')
 
     jobs:
