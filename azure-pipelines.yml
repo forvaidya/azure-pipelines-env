@@ -22,21 +22,20 @@ stages:
               # Write your commands here
               find . |grep -v git 
 
-        - task: Bash@4
+        - task: Bash@3
           inputs:
             targetType: 'inline'
             script: |
               RDM=$RANDOM
-              echo "Random Input  = ${RDM}"
-              if [ $((RDM%2)) -eq 0 ]
-              then
-                echo "SUCCESS"
-                exit 0
-              else
-                echo "FAILURE"
-                exit 1
-              fi
-
+                            echo "Random Input  = ${RDM}"
+                            if [ $((RDM%2)) -eq 0 ]
+                            then
+                              echo "SUCCESS"
+                              exit 0
+                            else
+                              echo "FAILURE"
+                              exit 1
+                            fi
 
   - stage: DEVDeploymentStage
     condition: succeeded('BuildStage')
