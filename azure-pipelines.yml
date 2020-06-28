@@ -1,47 +1,56 @@
 trigger:
 - master
 
-jobs:
-  - job: basicBuild
-    pool: 
-     vmImage: 'ubuntu-latest'
+stages:
+  - stage: BuildStage
+    jobs:
+      - job: basicBuildJob
+        displayName: Build job with submodules
+        pool: 
+          vmImage: 'ubuntu-latest'
+          name: 'Azure Supplied VM - Build'
+        
 
-    steps: 
-    - checkout: self
-      submodules: recursive
+        steps: 
+        - checkout: self
+          submodules: recursive
 
-    - task: Bash@3
-      inputs:
-        targetType: 'inline'
-        script: |
-          # Write your commands here
-          find . |grep -v git
+        - task: Bash@3
+          inputs:
+            targetType: 'inline'
+            script: |
+              # Write your commands here
+              find . |grep -v git
 
-  - deployment: onDevEnv
-    dependsOn: basicBuild
-    condition: succeeded()
+  - stage: DeploymentStage
+    condition: succeeded(BuildStage)
 
-    pool:
-      vmImage: 'ubuntu-latest'
-    environment: DevEnv
-    strategy:
-     runOnce:
-        deploy:
-          steps:
-            - script: echo "hello world"
+    jobs:
+      - deployment: DevDep
+        displayName: Deploy On Dev Environment
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          runOnce:
+            deploy: 
+              steps: 
+              - script: echo "My deployment on Dev Env"
+      - deployment: QADep
+        displayName: Deploy On QA Environment
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          runOnce:
+            deploy: 
+              steps: 
+              - script: echo "My deployment on QA Env"
 
-  - deployment: onQAEnv
-    dependsOn: onDevEnv
-    condition: succeeded()
-    pool:
-      vmImage: 'ubuntu-latest'
-    environment: QAEnv
-    strategy:
-     runOnce:
-        deploy:
-          steps:
-            - script: echo "hello world"
-            
+        
+
+
+         
+ 
+                
 
 
 
