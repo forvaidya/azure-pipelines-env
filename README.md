@@ -1,34 +1,21 @@
-# Unable to update submodules by default
+# Azure Pipelines Environment Demo.
+
+Azure Pipelines have feature "Environment" I could not find a neat example anywhere 
+
+I have modeled Azure Pipeline with following features
+
++ Submodules
++ Multiple Stages
++ Environment Deployment based success of stage 
 
 
-##Test case setup
+Success / Failures are generated based on a random number.
 
-Two git repositories submodule and supermodule.
-A submodule is included in supermodule.
 
-##Pipeline
-Pipeline have a bash step check if submodule updated OK
-<pre> find . submodule </pre
->
-##Expected Result
-Submodule must get checked out and visiblein output
+You can do Gating / Approval in your azure devops environment.
 
-##Actual Result
 
-### Test Case: Publically available git projects
-Submodule is not updated by default
-to get submodule following commands are needed
 
-<pre>git submodule deinit --all
-git submodule init 
-git submodule update --remote</pre>
 
-### Private git projects 
-Submodule is not updated by default as above
-
-During init commands, HTTP error seen in case of private git
-
-### Environment 
-Azure Agents.
 
 
