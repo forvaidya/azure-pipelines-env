@@ -8,7 +8,7 @@ stages:
         displayName: Build job with submodules
         pool: 
           vmImage: 'ubuntu-latest'
-
+          name: 'Azure Supplied VM - Build'
         
 
         steps: 
@@ -22,7 +22,21 @@ stages:
               # Write your commands here
               find . |grep -v git
 
-  - stage: DeploymentStage
+  - stage: QA-DeploymentStage
+    condition: succeeded('BuildStage')
+
+    jobs:
+      - deployment: QADep
+        displayName: Deploy On QA Environment
+        pool:
+          vmImage: 'ubuntu-latest'
+        strategy:
+          runOnce:
+            deploy: 
+              steps: 
+              - script: echo "My deployment on QA Env"
+
+  - stage: DEV-DeploymentStage
     condition: succeeded('BuildStage')
 
     jobs:
@@ -30,23 +44,11 @@ stages:
         displayName: Deploy On Dev Environment
         pool:
           vmImage: 'ubuntu-latest'
-        environment: DevEnv
         strategy:
           runOnce:
             deploy: 
               steps: 
               - script: echo "My deployment on Dev Env"
-      - deployment: QADep
-        displayName: Deploy On QA Environment
-        pool:
-          vmImage: 'ubuntu-latest'
-        environment: QAEnv
-        strategy:
-          runOnce:
-            deploy: 
-              steps: 
-              - script: echo "My deployment on QA Env"
-
         
 
 
