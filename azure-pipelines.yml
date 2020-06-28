@@ -30,6 +30,7 @@ stages:
         displayName: Deploy On Dev Environment
         pool:
           vmImage: 'ubuntu-latest'
+        environment: DevEnv
         strategy:
           runOnce:
             deploy: 
@@ -39,6 +40,7 @@ stages:
         displayName: Deploy On QA Environment
         pool:
           vmImage: 'ubuntu-latest'
+        environment: QAEnv
         strategy:
           runOnce:
             deploy: 
