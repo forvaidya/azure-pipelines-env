@@ -40,7 +40,7 @@ stages:
               - script: echo "My deployment on Dev Env"
         
 
-  - stage: DEVDeploymentStage
+  - stage: SecurityTestingStage
     condition: succeeded('BuildStage')
 
     jobs:
