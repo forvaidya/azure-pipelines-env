@@ -21,7 +21,8 @@ stages:
             script: |
               # Write your commands here
               find . |grep -v git 
-        - task: Bash@3
+
+        - task: Bash@4
           inputs:
             targetType: 'inline'
             script: |
