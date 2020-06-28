@@ -20,7 +20,8 @@ stages:
             targetType: 'inline'
             script: |
               # Write your commands here
-              find . |grep -v git
+              # find . |grep -v git 
+              false
 
 
   - stage: DEVDeploymentStage
