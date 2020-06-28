@@ -14,6 +14,7 @@ Success / Failures are generated based on a random number.
 
 You can do Gating / Approval in your azure devops environment.
 
+![Environment](environment.jpg)
 
 
 
