@@ -20,8 +20,8 @@ stages:
             targetType: 'inline'
             script: |
               # Write your commands here
-              # find . |grep -v git 
-              false
+              find . |grep -v git 
+              
 
 
   - stage: DEVDeploymentStage
@@ -40,6 +40,21 @@ stages:
               - script: echo "My deployment on Dev Env"
         
 
+  - stage: DEVDeploymentStage
+    condition: succeeded('BuildStage')
+
+    jobs:
+      - deployment: SecurityTestingDeployment
+        displayName: Deploy On Dev Environment
+        pool:
+          vmImage: 'ubuntu-latest'
+        environment: SecurityEnv
+        strategy:
+          runOnce:
+            deploy: 
+              steps: 
+              - script: false
+        
   - stage: QADeploymentStage
     condition: succeeded('BuildStage')
 
