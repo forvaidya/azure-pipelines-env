@@ -14,6 +14,8 @@
 + Swift 
 + Rust 
 
+## Code size and number of GiT repositories ?
+
 ## Which Build Tools are used ?
 + GNU Make
 + Maven, Gradle
@@ -29,5 +31,22 @@ Which tool you use for pipelines
 
 
 # AWS Considerations 
+## Infrastructure as code 
++ Terraform 
+
+## Moving parts in AWS Infrastructure
++ EKS 
++ Route53
++ S3
++ RDS 
++ ECR ? or any other docker registry ?
+
+## Deployment Considerations 
++ Multi Region Deploynent ?
++ GDPR / Region specific considerations for specific locale ?
++ Can customer deploy service using AWS marketplace ?
+
+
+
 
 
