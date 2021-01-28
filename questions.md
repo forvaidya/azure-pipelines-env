@@ -61,23 +61,23 @@ Which tool you use for pipelines
 
 ## Application IAM 
 Which Identity provider you use for external customers ?
-Okta ?
-Aws Cognito 
-???
++ Okta ?
++ Aws Cognito 
++ ???
 
 Any other -- I don't have much knowledge / experience in that domain.
 ## AWS Cost considerations, Security, Disaster Recovery etc ?
 
 ## Active directory 
 Which SSO system do you use 
-MS Active Direcoty ?
-Google Apps 
-Anything else ?
++ MS Active Direcoty ?
++ Google Apps 
++ Anything else ?
 
 ## Internal Email etc ?
-Microsoft Exchange 
-Google Apps 
-???
++ Microsoft Exchange 
++ Google Apps 
++ ???
 
 
 
