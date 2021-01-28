@@ -33,6 +33,13 @@ Which tool you use for pipelines
 # AWS Considerations 
 ## Infrastructure as code 
 + Terraform 
++ Any other ?
+
+## Secrets Management 
++ Vault 
++ Any other tool ?
+
+## SSL Certificate Management / renewal etc ?
 
 ## Moving parts in AWS Infrastructure
 + EKS 
@@ -42,9 +49,11 @@ Which tool you use for pipelines
 + ECR ? or any other docker registry ?
 
 ## Deployment Considerations 
-+ Multi Region Deploynent ?
++ Multi Region Deployment ?
 + GDPR / Region specific considerations for specific locale ?
 + Can customer deploy service using AWS marketplace ?
+
+## AWS Cost considerations, Security, Disaster Recovery etc ?
 
 
 
